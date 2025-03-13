@@ -1,6 +1,8 @@
-# Truth is Universal
+# Truth is Universal - seminar project 
+This repository is a fork of [sciai-lab/Truth_is_Universal](https://github.com/sciai-lab/Truth_is_Universal). It's part of a 2025 seminar coding project on Mechanistic Interpretability and aims to build on the paper's ideas in various ways.
 
-This repository contains the code and datasets necessary to reproduce the results presented in the Neurips 2024 paper <a href="https://arxiv.org/abs/2407.12831">"Truth is Universal: Robust Detection of Lies in LLMs"</a>.
+The original repository contains the code and datasets necessary to reproduce the results presented in the Neurips 2024 paper <a href="https://arxiv.org/abs/2407.12831">"Truth is Universal: Robust Detection of Lies in LLMs"</a>.
+
 
 ## Set-up
 We recommend using conda for Python installation. While we used Python 3.11.9, other versions should be compatible.
@@ -13,7 +15,7 @@ conda activate truth_is_universal
 Here, `python=3.11` is optional and other versions should be compatible as well. 
 Navigate to your preferred repository location, then clone the repository, enter it, and install the requirements:
 ```
-git clone git@github.com:sciai-lab/Truth_is_Universal.git
+git clone git@github.com:fjallripa/Truth_is_Universal.git
 cd Truth_is_Universal
 pip install -r requirements.txt
 ```
