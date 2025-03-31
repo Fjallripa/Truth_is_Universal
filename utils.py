@@ -8,6 +8,8 @@ import random
 ROOT = os.path.dirname(os.path.abspath(__file__))
 ACTS_BATCH_SIZE = 25
 
+
+
 def collect_acts(dataset_name, model_family, model_size,
                   model_type, layer, center=True, scale=False, device='cpu'):
     """
@@ -27,6 +29,8 @@ def collect_acts(dataset_name, model_family, model_size,
         acts = acts / t.std(acts, dim=0)
     return acts
 
+
+
 def cat_data(d):
     """
     Given a dict of datasets (possible recursively nested), returns the concatenated activations and labels.
@@ -45,6 +49,8 @@ def cat_data(d):
     except:
         raise Exception("No activation vectors could be found for this dataset. Please generate them first using generate_acts.")
     return acts, labels
+
+
 
 class DataManager:
     """
@@ -111,7 +117,9 @@ class DataManager:
         # if proj and self.proj is not None:
         #     acts = t.mm(acts, self.proj)
         return acts, labels
-    
+
+
+
 def dataset_sizes(datasets):
     """
     Computes the size of each dataset, i.e. the number of statements.
@@ -125,6 +133,8 @@ def dataset_sizes(datasets):
             line_count = sum(1 for line in file)
         dataset_sizes_dict[dataset] = line_count - 1
     return dataset_sizes_dict
+
+
 
 def collect_training_data(dataset_names, train_set_sizes, model_family, model_size
                           , model_type, layer, **kwargs):
@@ -154,7 +164,9 @@ def collect_training_data(dataset_names, train_set_sizes, model_family, model_si
         all_polarities.append(polarities[rand_subset])
 
     return map(t.cat, (all_acts_centered, all_acts, all_labels, all_polarities))
-    
+
+
+
 def compute_statistics(results):
     stats = {}
     for key in results:
@@ -162,6 +174,8 @@ def compute_statistics(results):
         stds = {dataset: np.std(values) for dataset, values in results[key].items()}
         stats[key] = {'mean': means, 'std': stds}
     return stats
+
+
 
 def compute_average_accuracies(results, num_iter):
     probe_stats = {}
