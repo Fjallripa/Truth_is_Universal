@@ -6,8 +6,8 @@ print(f"Loading {repository_name} model and tokenizer.")
 tokenizer = AutoTokenizer.from_pretrained(repository_name)
 model = AutoModelForCausalLM.from_pretrained(repository_name)
 
-save_dir = "../TiU_data/model_weights/llama3_hf/llama3_8b_chat_hf"
-#save_dir = "../TiU_data/model_weights/tinystories_hf/tinystories_1m_hf"
+save_dir = "./weights/llama3_hf/llama3_8b_chat_hf"
+#save_dir = "./weights/tinystories_hf/tinystories_1m_hf"
 print(f"Saving both to {save_dir}.")
 tokenizer.save_pretrained(save_dir)
 model.save_pretrained(save_dir)

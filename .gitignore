@@ -1,5 +1,7 @@
-# activations
+# model weights & activations
+weights/
 **/acts/
+
 
 # new sae feature
 sae_decomposition.ipynb
