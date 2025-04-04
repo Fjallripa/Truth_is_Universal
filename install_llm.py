@@ -14,16 +14,27 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 def parse_arguments():
     """Parse command line arguments."""
+    # Get supported models for help text
+    supported_models = get_supported_models()
+    
+    # Create custom help text for supported models
+    models_help = "supported models:\n"
+    for model_name, model_info in supported_models.items():
+        models_help += f"  {model_name:<12} - {model_info['repo']}\n"
+    
+    # Create the parser with custom formatting
     parser = argparse.ArgumentParser(
         description="Download and save HuggingFace LLMs locally with specified options.",
-        formatter_class=argparse.RawTextHelpFormatter
+        formatter_class=argparse.RawTextHelpFormatter,
+        epilog=models_help
     )
     
     model_group = parser.add_mutually_exclusive_group(required=True)
     model_group.add_argument(
         "-m", "--model", 
         nargs="+", 
-        choices=get_supported_models().keys(),
+        metavar="<model>",
+        choices=supported_models.keys(),
         help="One or more models to download (space separated)"
     )
     model_group.add_argument(
@@ -80,12 +91,33 @@ def download_and_save_model(model_name, model_info):
     
     print(f"Saving {model_name} model...")
     model.save_pretrained(model_info['save_dir'])
-    
+
     # Clean up memory
     del model, tokenizer
     gc.collect()
     torch.cuda.empty_cache() if torch.cuda.is_available() else None
     
+
+    """
+    # Debug section - activate to dry-run the script
+
+    # Download tokenizer and model
+    print(f"Downloading {model_name} tokenizer...")
+    print(f"Downloading {model_name} model...")
+    print(f"{model_info['repo']}")
+
+    # Save tokenizer and model
+    print(f"Saving {model_name} tokenizer...")
+    print(f"Saving {model_name} model...")
+    print(f"{model_info['save_dir']}")
+
+    # Clean up memory
+    #del model, tokenizer
+    gc.collect()
+    torch.cuda.empty_cache() if torch.cuda.is_available() else None
+    """
+    
+
     print(f"\n{model_name} successfully downloaded and saved.\n")
 
 
