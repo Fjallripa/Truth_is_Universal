@@ -1,6 +1,10 @@
 # model weights & activations
 weights/
-**/acts/
+acts/
+
+# temporary files for prototyping etc.
+temp/
+
 
 
 # new sae feature
