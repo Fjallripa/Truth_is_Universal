@@ -2,8 +2,14 @@
 weights/
 acts/
 
+# experimental results (mostly plots)
+results/
+
 # temporary files for prototyping etc.
 temp/
+
+
+
 
 
 
