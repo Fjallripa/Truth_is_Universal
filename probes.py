@@ -2,10 +2,10 @@
 # ==========================================
 
 
-import torch as t
 import numpy as np
 from sklearn.linear_model import LogisticRegression
-
+import torch as t
+import torch.nn as nn
 
 
 # Helper functions
@@ -176,3 +176,59 @@ class MMProbe(t.nn.Module):
 
         return probe
 
+
+
+class SimpleMLPProbe(nn.Module):
+    """
+    A very simple non-linear, MLP probe with 2 hidden layers.
+    The resulting  classification boundary is roughly a 3-piece linear function.
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.input_dim = 2
+        self.output_dim = 1
+        self.model = nn.Sequential(
+            nn.Linear(self.input_dim, 3),
+            nn.ReLU(),
+            nn.Linear(3, 7),
+            nn.ReLU(),
+            nn.Linear(7, self.output_dim),
+            nn.Sigmoid(),
+        )
+        
+    def forward(self, acts):
+        return self.model(acts)
+    
+    def pred(self, acts):
+        """
+        Classify the activations.
+        """
+        with t.no_grad():
+            return self.model(acts).round()
+        
+    def from_data (self, acts, labels, epochs=1000, learning_rate=0.01, verbose=True):
+        """
+        Train the probe on the labelled activation data.
+        """
+        # Setup
+        self.optimizer = t.optim.Adam(self.model.parameters(), lr=learning_rate)
+        self.loss_function = nn.BCELoss()
+
+        # Convert activations to PyTorch tensors
+        acts_tensor = t.tensor(acts, dtype=t.float32)
+        labels_tensor = t.tensor(labels, dtype=t.float32).view(-1, 1)
+
+        # Run the training  
+        for epoch in range(epochs):
+            self.optimizer.zero_grad()
+            output = self.model(acts_tensor)
+            loss = self.loss_function(output, labels_tensor)
+            loss.backward()
+            self.optimizer.step()
+            
+            if epoch % 100 == 0 and verbose:
+                print(f"Epoch {epoch}: Loss = {loss.item()}")
+        if verbose:
+            print(f"Final Loss = {loss.item()}")   
+ 
