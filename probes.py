@@ -196,39 +196,55 @@ class SimpleMLPProbe(nn.Module):
             nn.Linear(7, self.output_dim),
             nn.Sigmoid(),
         )
+        self.t_g, self.t_p = None, None   # truth directions
         
     def forward(self, acts):
         return self.model(acts)
     
-    def pred(self, acts):
+    def _project_acts(self, acts):
+        """
+        Project the high-dimensional activations onto the 2D truth space.
+        """
+        proj_t_g = acts @ self.t_g
+        proj_t_p = acts @ self.t_p
+        return t.stack((proj_t_g, proj_t_p), axis=1)
+        
+    def pred(self, acts, is_2d=False):
         """
         Classify the activations.
+        Returns float labels 0.0 or 1.0.
         """
+        if not is_2d:
+            acts = self._project_acts(acts)
         with t.no_grad():
-            return self.model(acts).round()
+            return self.forward(acts).round()
         
-    def from_data (self, acts, labels, epochs=1000, learning_rate=0.01, verbose=True):
+    def from_data(acts, labels, polarities, epochs=1000, learning_rate=0.01, verbose=False):
         """
         Train the probe on the labelled activation data.
         """
         # Setup
-        self.optimizer = t.optim.Adam(self.model.parameters(), lr=learning_rate)
-        self.loss_function = nn.BCELoss()
+        probe = SimpleMLPProbe()
+        probe.optimizer = t.optim.Adam(probe.model.parameters(), lr=learning_rate)
+        probe.loss_function = nn.BCELoss()   # Binary Cross-Entropy Loss
 
-        # Convert activations to PyTorch tensors
-        acts_tensor = t.tensor(acts, dtype=t.float32)
-        labels_tensor = t.tensor(labels, dtype=t.float32).view(-1, 1)
+        # Prepare the training data
+        probe.t_g, probe.t_p = learn_truth_directions(acts, labels, polarities)
+        acts_2d = probe._project_acts(acts)
+        labels = labels.view(-1, 1)
 
         # Run the training  
         for epoch in range(epochs):
-            self.optimizer.zero_grad()
-            output = self.model(acts_tensor)
-            loss = self.loss_function(output, labels_tensor)
+            probe.optimizer.zero_grad()
+            output = probe(acts_2d)
+            loss = probe.loss_function(output, labels)
             loss.backward()
-            self.optimizer.step()
+            probe.optimizer.step()
             
             if epoch % 100 == 0 and verbose:
                 print(f"Epoch {epoch}: Loss = {loss.item()}")
         if verbose:
-            print(f"Final Loss = {loss.item()}")   
+            print(f"Final Loss = {loss.item()}")
+
+        return probe   
  
