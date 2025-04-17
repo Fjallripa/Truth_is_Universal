@@ -1,6 +1,15 @@
+# A Module for truth classification probes
+# ==========================================
+
+
 import torch as t
 import numpy as np
 from sklearn.linear_model import LogisticRegression
+
+
+
+# Helper functions
+# ----------------
 
 def learn_truth_directions(acts_centered, labels, polarities):
     # Check if all polarities are zero (handling both int and float) -> if yes learn only t_g
@@ -27,6 +36,8 @@ def learn_truth_directions(acts_centered, labels, polarities):
 
     return t_g, t_p
 
+
+
 def learn_polarity_direction(acts, polarities):
     polarities_copy = polarities.clone()
     polarities_copy[polarities_copy == -1.0] = 0.0
@@ -34,6 +45,22 @@ def learn_polarity_direction(acts, polarities):
     LR_polarity.fit(acts.numpy(), polarities_copy.numpy())
     polarity_direc = LR_polarity.coef_
     return polarity_direc
+
+
+
+def ccs_loss(probe, acts, neg_acts):
+    p_pos = probe(acts)
+    p_neg = probe(neg_acts)
+    consistency_losses = (p_pos - (1 - p_neg)) ** 2
+    confidence_losses = t.min(t.stack((p_pos, p_neg), dim=-1), dim=-1).values ** 2
+    return t.mean(consistency_losses + confidence_losses)
+
+
+
+
+
+# Probe classes
+# -------------
 
 class TTPD():
     def __init__(self):
@@ -61,14 +88,6 @@ class TTPD():
         acts_2d = np.concatenate((proj_t_g[:, None], proj_p), axis=1)
         return acts_2d
 
-
-
-def ccs_loss(probe, acts, neg_acts):
-    p_pos = probe(acts)
-    p_neg = probe(neg_acts)
-    consistency_losses = (p_pos - (1 - p_neg)) ** 2
-    confidence_losses = t.min(t.stack((p_pos, p_neg), dim=-1), dim=-1).values ** 2
-    return t.mean(consistency_losses + confidence_losses)
 
 
 class CCSProbe(t.nn.Module):
@@ -111,7 +130,8 @@ class CCSProbe(t.nn.Module):
     @property
     def bias(self):
         return self.net[0].bias.data[0]
-    
+
+
 
 class LRProbe():
     def __init__(self):
@@ -126,6 +146,7 @@ class LRProbe():
     def pred(self, acts):
         return t.tensor(self.LR.predict(acts))
     
+
 
 class MMProbe(t.nn.Module):
     def __init__(self, direction, LR):
