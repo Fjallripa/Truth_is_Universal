@@ -217,7 +217,7 @@ class SimpleMLPProbe(nn.Module):
         if not is_2d:
             acts = self._project_acts(acts)
         with t.no_grad():
-            return self.forward(acts).round()
+            return self.forward(acts).flatten().round()
         
     def from_data(acts, labels, polarities, epochs=1000, learning_rate=0.01, verbose=False):
         """
