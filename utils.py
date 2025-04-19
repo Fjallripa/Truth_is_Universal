@@ -1,14 +1,25 @@
+# A module for data managements and post-processing for the experiments
+# ==========================================================
+
+
+import numpy as np
 import torch as t
 import pandas as pd
-import numpy as np
+
 import os
 from glob import glob
 import random
+import json
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 ACTS_BATCH_SIZE = 25
 
 
+
+
+
+# Managing datasets and activations
+# ---------------------------------
 
 def collect_acts(dataset_name, model_family, model_size,
                   model_type, layer, center=True, scale=False, device='cpu'):
@@ -56,6 +67,7 @@ class DataManager:
     """
     Class for storing activations and labels from datasets of statements.
     """
+    
     def __init__(self):
         self.data = {
             'train' : {},
@@ -63,6 +75,7 @@ class DataManager:
         } # dictionary of datasets
         self.proj = None # projection matrix for dimensionality reduction
     
+
     def add_dataset(self, dataset_name, model_family, model_size, model_type, layer,
                      label='label', split=None, seed=None, center=True, scale=False, device='cpu'):
         """
@@ -87,6 +100,7 @@ class DataManager:
             val = ~train
             self.data['train'][dataset_name] = acts[train], labels[train]
             self.data['val'][dataset_name] = acts[val], labels[val]
+
 
     def get(self, datasets):
         """
@@ -167,6 +181,11 @@ def collect_training_data(dataset_names, train_set_sizes, model_family, model_si
 
 
 
+
+
+# Post-processing of the experimental results
+# -------------------------------------------
+
 def compute_statistics(results:dict) -> dict:
     """
     Computes the mean and standard deviation of the classification accuracies for each probe and each dataset.
@@ -223,3 +242,98 @@ def compute_average_accuracies(results:dict, num_iter:int) -> dict:
         probe_stats[probe_type] = {'mean':final_mean, 'std_dev':std_dev}
     
     return probe_stats
+
+
+
+def show_and_save_results (probe_accuracies:dict, dataset_accuracies:dict, meta_info:dict, save=True) -> None:
+    """
+    Print and save the results of the probe accuracy statistics.
+    The saved file will have the following format: 
+    `./results/<notebook_name>--<experiment_name>--<full_model_name>.json`
+    
+    Inputs:
+    - probe_accuracies : dict = overall accuracy statistics for each probe type
+        probe_accuracies[probe_type : class.probes] : dict = {"mean":float, "std_dev":float}
+            - mean = mean of accuracy of probe_type across all datasets and iterations
+            - std_dev = standard deviation of the mean accuracy for each dataset
+    - dataset_accuracies : dict = accuracy statistics for each probe type and validation dataset
+        dataset_accuracies[probe_type : class.probes] : dict = {"means":dict, "stds":dict, "num_iter":int} 
+            - means[dataset_name : str] : float = mean of accuracy
+            - stds[dataset_name : str] : float = std of accuracy
+            - num_iter : int = number of training iterations 
+    - meta_info : dict = meta information about the experiment
+        = {
+            'notebook_name' : str,
+            'model_name' : str,
+            'layer' : int,
+            'experiment_name' : str,
+            'probe_names' : list[str],
+            'validation_type' : str,
+            'num_iterations' : int,
+            'train_sets' : list[str],
+            'val_sets' : list[str],
+        }
+    """
+
+    # Print the results
+    print(f"Results for the experiment '{meta_info['experiment_name']}' and the model '{meta_info['model_name']}' (layer {meta_info['layer']}):")
+    print(f"    mean accuracy ± std deviation")
+    print(f"------------------------------------")
+    for probe_type, stats in probe_accuracies.items():
+        print(f"{probe_type:<20}: {stats['mean']*100:4.1f} ± {stats['std_dev']*100:4.1f}%")
+    print(f"------------------------------------")
+    print("")
+
+
+    # Save the results to a .json file in the results/ directory.
+    if save:
+        results = {
+            'probe_accuracies':probe_accuracies, 'dataset_accuracies':dataset_accuracies, 'meta_info':meta_info,
+        }
+        os.makedirs("./results/", exist_ok=True)
+        save_dir = f"./results/{meta_info['notebook_name']}--{meta_info['experiment_name']}--{meta_info['model_name']}.json" 
+        with open(save_dir, "w") as f:
+            json.dump(results, f, indent=4)
+        print(f"Results saved to {save_dir}")
+
+
+
+def load_results(notebook_name:str, experiment_name:str, full_model_name:str) -> tuple[dict]:
+    """
+    Load the experiment statistics (probe and dataset accuracies) from a .json file.
+    The file is expected to be in the format: 
+    `./results/<notebook_name>--<experiment_name>--<full_model_name>.json`.
+    
+    Arguments:
+    - notebook_name = name of the notebook (e.g., "lie_detection").
+    - experiment_name = name of the experiment (e.g., "unseen_topics").
+    - full_model_name = name of the model (e.g., "Llama3_8B_chat").
+    
+    Returns:
+    - results : tuple[dict]
+        - probe_accuracies : dict = overall accuracy statistics for each probe type
+            probe_accuracies[probe_type : class.probes] : dict = {"mean":float, "std_dev":float}
+                - mean = mean of accuracy of probe_type across all datasets and iterations
+                - std_dev = standard deviation of the mean accuracy for each dataset
+        - dataset_accuracies : dict = accuracy statistics for each probe type and validation dataset
+            dataset_accuracies[probe_type : class.probes] : dict = {"means":dict, "stds":dict, "num_iter":int} 
+                - means[dataset_name : str] : float = mean of accuracy
+                - stds[dataset_name : str] : float = std of accuracy
+                - num_iter : int = number of training iterations 
+        - meta_info: meta information about the experiment.
+            dict = {
+                'notebook_name' : str,
+                'model_name' : str,
+                'layer' : int,
+                'experiment_name' : str,
+                'probe_names' : list[str],
+                'validation_type' : str,
+                'num_iterations' : int,
+                'train_sets' : list[str],
+                'val_sets' : list[str],
+                }
+    """
+
+    with open(f"./results/{notebook_name}--{experiment_name}--{full_model_name}.json", "r") as f:
+        results = json.load(f)
+    return results["probe_accuracies"], results["dataset_accuracies"], results["meta_info"]

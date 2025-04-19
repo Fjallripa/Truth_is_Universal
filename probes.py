@@ -1,4 +1,4 @@
-# A Module for truth classification probes
+# A module for truth classification probes
 # ==========================================
 
 
@@ -6,6 +6,9 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 import torch as t
 import torch.nn as nn
+
+
+
 
 
 # Helper functions
@@ -68,6 +71,7 @@ class TTPD():
         self.polarity_direc = None
         self.LR = None
 
+
     def from_data(acts_centered, acts, labels, polarities):
         probe = TTPD()
         probe.t_g, _ = learn_truth_directions(acts_centered, labels, polarities)
@@ -77,11 +81,13 @@ class TTPD():
         probe.LR = LogisticRegression(penalty=None, fit_intercept=True)
         probe.LR.fit(acts_2d, labels.numpy())
         return probe
-    
+
+
     def pred(self, acts):
         acts_2d = self._project_acts(acts)
         return t.tensor(self.LR.predict(acts_2d))
-    
+
+
     def _project_acts(self, acts):
         proj_t_g = acts.numpy() @ self.t_g
         proj_p = acts.numpy() @ self.polarity_direc.T
@@ -97,13 +103,16 @@ class CCSProbe(t.nn.Module):
             t.nn.Linear(d_in, 1, bias=True),
             t.nn.Sigmoid()
         )
-    
+
+
     def forward(self, x, iid=None):
         return self.net(x).squeeze(-1)
-    
+
+
     def pred(self, acts, iid=None):
         return self(acts).round()
-    
+
+
     def from_data(acts, neg_acts, labels=None, lr=0.001, weight_decay=0.1, epochs=1000, device='cpu'):
         acts, neg_acts = acts.to(device), neg_acts.to(device)
         probe = CCSProbe(acts.shape[-1]).to(device)
@@ -123,10 +132,12 @@ class CCSProbe(t.nn.Module):
         
         return probe
 
+
     @property
     def direction(self):
         return self.net[0].weight.data[0]
-    
+
+
     @property
     def bias(self):
         return self.net[0].bias.data[0]
@@ -137,11 +148,13 @@ class LRProbe():
     def __init__(self):
         self.LR = None
 
+
     def from_data(acts, labels):
         probe = LRProbe()
         probe.LR = LogisticRegression(penalty=None, fit_intercept=True)
         probe.LR.fit(acts.numpy(), labels.numpy())
         return probe
+
 
     def pred(self, acts):
         return t.tensor(self.LR.predict(acts))
@@ -154,12 +167,15 @@ class MMProbe(t.nn.Module):
         self.direction = direction
         self.LR = LR
 
+
     def forward(self, acts):
         proj = acts @ self.direction
         return t.tensor(self.LR.predict(proj[:, None]))
 
+
     def pred(self, x):
         return self(x).round()
+
 
     def from_data(acts, labels, device='cpu'):
         acts, labels
@@ -184,6 +200,7 @@ class SimpleMLPProbe(nn.Module):
     The resulting  classification boundary is roughly a 3-piece linear function.
     """
 
+
     def __init__(self):
         super().__init__()
         self.input_dim = 2
@@ -197,32 +214,39 @@ class SimpleMLPProbe(nn.Module):
             nn.Sigmoid(),
         )
         self.t_g, self.t_p = None, None   # truth directions
-        
+
+       
     def forward(self, acts):
         return self.model(acts)
     
+
     def _project_acts(self, acts):
         """
         Project the high-dimensional activations onto the 2D truth space.
         """
+        
         proj_t_g = acts @ self.t_g
         proj_t_p = acts @ self.t_p
         return t.stack((proj_t_g, proj_t_p), axis=1)
-        
+
+
     def pred(self, acts, is_2d=False):
         """
         Classify the activations.
         Returns float labels 0.0 or 1.0.
         """
+        
         if not is_2d:
             acts = self._project_acts(acts)
         with t.no_grad():
             return self.forward(acts).flatten().round()
-        
+
+
     def from_data(acts, labels, polarities, epochs=1000, learning_rate=0.01, verbose=False):
         """
         Train the probe on the labelled activation data.
         """
+        
         # Setup
         probe = SimpleMLPProbe()
         probe.optimizer = t.optim.Adam(probe.model.parameters(), lr=learning_rate)
