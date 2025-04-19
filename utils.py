@@ -167,17 +167,45 @@ def collect_training_data(dataset_names, train_set_sizes, model_family, model_si
 
 
 
-def compute_statistics(results):
+def compute_statistics(results:dict) -> dict:
+    """
+    Computes the mean and standard deviation of the classification accuracies for each probe and each dataset.
+
+    Args:
+        - results[probe_type : class.probes][validation_dataset : str] : list[float] = classification accuracies for each training iteration
+
+    Output:
+        - stats[probe_type : class.probes] : dict = {"means":dict, "stds":dict} 
+            - means[dataset_name : str] : float = mean of accuracy
+            - stds[dataset_name : str] : float = std of accuracy
+    """
+    
     stats = {}
     for key in results:
         means = {dataset: np.mean(values) for dataset, values in results[key].items()}
         stds = {dataset: np.std(values) for dataset, values in results[key].items()}
         stats[key] = {'mean': means, 'std': stds}
+    
     return stats
 
 
 
-def compute_average_accuracies(results, num_iter):
+def compute_average_accuracies(results:dict, num_iter:int) -> dict:
+    """
+    Computes the mean accuracy of each probe across all datasets and also the standard deviation of this mean aross all training iterations.
+    This is done by taking the mean of the accuracies across all datasets for each training iteration, and then taking the standard deviation of these means.
+    The final mean accuracy is computed by taking the mean of the means across all datasets.
+    
+    Args:
+        - results[probe_type : class.probes][validation_dataset : str] : list[float] = classification accuracies for each training iteration
+        - num_iter : int = number of training iterations
+    
+    Output:
+        - probe_stats[probe_type : class.probes] : dict = {"mean":float, "std_dev":float}
+            - mean = mean of accuracy of probe_type across all datasets and iterations
+            - std_dev = standard deviation of the mean accuracy for each dataset
+    """
+
     probe_stats = {}
 
     for probe_type in results:
@@ -192,15 +220,6 @@ def compute_average_accuracies(results, num_iter):
         final_mean = np.mean(overall_means)
         std_dev = np.std(overall_means)
         
-        probe_stats[probe_type.__name__] = {
-            'mean': final_mean,
-            'std_dev': std_dev
-        }
+        probe_stats[probe_type] = {'mean':final_mean, 'std_dev':std_dev}
     
     return probe_stats
-
-     
-
-
-
-
