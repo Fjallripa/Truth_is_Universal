@@ -2,8 +2,8 @@
 weights/
 acts/
 
-# experimental results (mostly plots)
-results/
+# plots from experimental results
+results/*.svg
 
 # temporary files for prototyping etc.
 temp/

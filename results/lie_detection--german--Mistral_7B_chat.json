@@ -1,0 +1,219 @@
+{
+    "probe_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": 0.776518709709247,
+            "std_dev": 0.06403347548518114
+        },
+        "TTPD": {
+            "mean": 0.8388044183452923,
+            "std_dev": 0.004207322688408838
+        },
+        "LRProbe": {
+            "mean": 0.8599183636407057,
+            "std_dev": 0.011974640781391753
+        },
+        "MMProbe": {
+            "mean": 0.7787023824950058,
+            "std_dev": 0.00871261869846841
+        },
+        "CCSProbe": {
+            "mean": 0.7842346921563149,
+            "std_dev": 0.10711998172749185
+        }
+    },
+    "dataset_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": {
+                "cities_de": 0.7030000030994416,
+                "neg_cities_de": 0.8880000025033951,
+                "sp_en_trans_de": 0.8429999947547913,
+                "neg_sp_en_trans_de": 0.898000006377697,
+                "inventors_de": 0.8569999977946281,
+                "neg_inventors_de": 0.9330000042915344,
+                "animal_class_de": 0.7619999840855598,
+                "neg_animal_class_de": 0.8619999974966049,
+                "element_symb_de": 0.7020000085234642,
+                "neg_element_symb_de": 0.6430000096559525,
+                "facts_de": 0.6660000145435333,
+                "neg_facts_de": 0.5612244933843613
+            },
+            "std": {
+                "cities_de": 0.09721625800573173,
+                "neg_cities_de": 0.09152049275511685,
+                "sp_en_trans_de": 0.07163099446934926,
+                "neg_sp_en_trans_de": 0.1011731190620445,
+                "inventors_de": 0.10550355242504256,
+                "neg_inventors_de": 0.08724104622201966,
+                "animal_class_de": 0.07208327980057977,
+                "neg_animal_class_de": 0.07613145957750782,
+                "element_symb_de": 0.07291090918907797,
+                "neg_element_symb_de": 0.034799432603145435,
+                "facts_de": 0.043863425507762545,
+                "neg_facts_de": 0.03128512931005312
+            }
+        },
+        "TTPD": {
+            "mean": {
+                "cities_de": 0.8819999933242798,
+                "neg_cities_de": 0.9959999978542328,
+                "sp_en_trans_de": 0.9099999964237213,
+                "neg_sp_en_trans_de": 0.8649999916553497,
+                "inventors_de": 0.9650000035762787,
+                "neg_inventors_de": 0.9389999985694886,
+                "animal_class_de": 0.7799999713897705,
+                "neg_animal_class_de": 0.8659999966621399,
+                "element_symb_de": 0.7759999841451645,
+                "neg_element_symb_de": 0.6800000071525574,
+                "facts_de": 0.7240000158548355,
+                "neg_facts_de": 0.6826530635356903
+            },
+            "std": {
+                "cities_de": 0.005999994277954101,
+                "neg_cities_de": 0.012000006437301635,
+                "sp_en_trans_de": 0.010000020265579224,
+                "neg_sp_en_trans_de": 0.030248972560053464,
+                "inventors_de": 0.016583135094097354,
+                "neg_inventors_de": 0.01729159997522007,
+                "animal_class_de": 0.0,
+                "neg_animal_class_de": 0.015620504297091001,
+                "element_symb_de": 0.01624807452019122,
+                "neg_element_symb_de": 0.0,
+                "facts_de": 0.014966629610824077,
+                "neg_facts_de": 0.026978184626124866
+            }
+        },
+        "LRProbe": {
+            "mean": {
+                "cities_de": 0.9919999986886978,
+                "neg_cities_de": 0.9599999934434891,
+                "sp_en_trans_de": 0.7869999945163727,
+                "neg_sp_en_trans_de": 0.7939999997615814,
+                "inventors_de": 0.8299999982118607,
+                "neg_inventors_de": 0.9549999922513962,
+                "animal_class_de": 0.7989999890327454,
+                "neg_animal_class_de": 0.8639999955892563,
+                "element_symb_de": 0.8939999997615814,
+                "neg_element_symb_de": 0.8759999960660935,
+                "facts_de": 0.7669999986886978,
+                "neg_facts_de": 0.8010204076766968
+            },
+            "std": {
+                "cities_de": 0.017204654220261066,
+                "neg_cities_de": 0.031622780371416095,
+                "sp_en_trans_de": 0.12653457663796816,
+                "neg_sp_en_trans_de": 0.0887918855177228,
+                "inventors_de": 0.08402380369595382,
+                "neg_inventors_de": 0.02958040647177,
+                "animal_class_de": 0.028618185406577984,
+                "neg_animal_class_de": 0.0361109387444229,
+                "element_symb_de": 0.036932370586508466,
+                "neg_element_symb_de": 0.03006658945800119,
+                "facts_de": 0.040632493196633264,
+                "neg_facts_de": 0.035859768667925195
+            }
+        },
+        "MMProbe": {
+            "mean": {
+                "cities_de": 0.7100000113248826,
+                "neg_cities_de": 0.9080000013113022,
+                "sp_en_trans_de": 0.8919999837875366,
+                "neg_sp_en_trans_de": 0.8470000058412552,
+                "inventors_de": 0.8789999961853028,
+                "neg_inventors_de": 0.9609999865293503,
+                "animal_class_de": 0.7689999938011169,
+                "neg_animal_class_de": 0.872000002861023,
+                "element_symb_de": 0.7019999921321869,
+                "neg_element_symb_de": 0.5699999958276749,
+                "facts_de": 0.6630000233650207,
+                "neg_facts_de": 0.5714285969734192
+            },
+            "std": {
+                "cities_de": 0.0392428335280584,
+                "neg_cities_de": 0.017204660456274334,
+                "sp_en_trans_de": 0.01326648650950208,
+                "neg_sp_en_trans_de": 0.03303028731445944,
+                "inventors_de": 0.004358894786570704,
+                "neg_inventors_de": 0.009949881955037435,
+                "animal_class_de": 0.01609348455414173,
+                "neg_animal_class_de": 0.009797949627070887,
+                "element_symb_de": 0.006000012159347534,
+                "neg_element_symb_de": 0.014832392875278393,
+                "facts_de": 0.007141421617945973,
+                "neg_facts_de": 0.0
+            }
+        },
+        "CCSProbe": {
+            "mean": {
+                "cities_de": 0.8449999958276748,
+                "neg_cities_de": 0.8059999972581864,
+                "sp_en_trans_de": 0.8619999989867211,
+                "neg_sp_en_trans_de": 0.8289999961853027,
+                "inventors_de": 0.8730000004172325,
+                "neg_inventors_de": 0.8689999967813492,
+                "animal_class_de": 0.7419999882578849,
+                "neg_animal_class_de": 0.8139999955892563,
+                "element_symb_de": 0.7829999938607216,
+                "neg_element_symb_de": 0.6870000019669533,
+                "facts_de": 0.6600000098347664,
+                "neg_facts_de": 0.640816330909729
+            },
+            "std": {
+                "cities_de": 0.1308243082597555,
+                "neg_cities_de": 0.16013743858506027,
+                "sp_en_trans_de": 0.14027116771743056,
+                "neg_sp_en_trans_de": 0.14986326499410976,
+                "inventors_de": 0.16214499506336982,
+                "neg_inventors_de": 0.1412055181992984,
+                "animal_class_de": 0.09378699137582823,
+                "neg_animal_class_de": 0.11403507847212183,
+                "element_symb_de": 0.13360763790690908,
+                "neg_element_symb_de": 0.10644716889160911,
+                "facts_de": 0.06663332585456894,
+                "neg_facts_de": 0.07169049049326384
+            }
+        }
+    },
+    "meta_info": {
+        "notebook_name": "lie_detection",
+        "model_name": "Mistral_7B_chat",
+        "layer": 13,
+        "experiment_name": "german",
+        "probe_names": [
+            "SimpleMLPProbe",
+            "TTPD",
+            "LRProbe",
+            "MMProbe",
+            "CCSProbe"
+        ],
+        "validation_type": "separate validation sets",
+        "num_iterations": 20,
+        "train_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ],
+        "val_sets": [
+            "cities_de",
+            "neg_cities_de",
+            "sp_en_trans_de",
+            "neg_sp_en_trans_de",
+            "inventors_de",
+            "neg_inventors_de",
+            "animal_class_de",
+            "neg_animal_class_de",
+            "element_symb_de",
+            "neg_element_symb_de",
+            "facts_de",
+            "neg_facts_de"
+        ]
+    }
+}

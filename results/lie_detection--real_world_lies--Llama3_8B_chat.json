@@ -1,0 +1,98 @@
+{
+    "probe_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": 0.8492307698726654,
+            "std_dev": 0.08699537143092642
+        },
+        "TTPD": {
+            "mean": 0.9380769264698029,
+            "std_dev": 0.009452467369521067
+        },
+        "LRProbe": {
+            "mean": 0.7730769217014313,
+            "std_dev": 0.09038461624307982
+        },
+        "MMProbe": {
+            "mean": 0.904230785369873,
+            "std_dev": 0.015259114438109152
+        },
+        "CCSProbe": {
+            "mean": 0.7176923090219498,
+            "std_dev": 0.12449246041561933
+        }
+    },
+    "dataset_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.8492307698726654
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.08699537143092642
+            }
+        },
+        "TTPD": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.9380769264698029
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.009452467369521067
+            }
+        },
+        "LRProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.7730769217014313
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.09038461624307982
+            }
+        },
+        "MMProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.904230785369873
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.015259114438109152
+            }
+        },
+        "CCSProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.7176923090219498
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.12449246041561933
+            }
+        }
+    },
+    "meta_info": {
+        "notebook_name": "lie_detection",
+        "model_name": "Llama3_8B_chat",
+        "layer": 12,
+        "experiment_name": "real_world_lies",
+        "probe_names": [
+            "SimpleMLPProbe",
+            "TTPD",
+            "LRProbe",
+            "MMProbe",
+            "CCSProbe"
+        ],
+        "validation_type": "separate validation sets",
+        "num_iterations": 50,
+        "train_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ],
+        "val_sets": [
+            "real_world_scenarios/all_unambiguous_replies"
+        ]
+    }
+}

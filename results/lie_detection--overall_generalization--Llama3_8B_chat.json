@@ -1,0 +1,173 @@
+{
+    "probe_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": 0.762693687611156,
+            "std_dev": 0.06136212763545207
+        },
+        "TTPD": {
+            "mean": 0.7965523620446523,
+            "std_dev": 0.002535700998687403
+        },
+        "LRProbe": {
+            "mean": 0.7864587932825089,
+            "std_dev": 0.011982498646459745
+        },
+        "MMProbe": {
+            "mean": 0.7734188925060962,
+            "std_dev": 0.007200041035573361
+        },
+        "CCSProbe": {
+            "mean": 0.7739879526611831,
+            "std_dev": 0.0785245412850479
+        }
+    },
+    "dataset_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": {
+                "Conjunctions": 0.8007951259613038,
+                "Disjunctions": 0.6418000002702078,
+                "Affirmative German": 0.8269999998311202,
+                "Negated German": 0.8291156453390917,
+                "common_claim_true_false": 0.7686179786920547,
+                "counterfact_true_false": 0.7088333755731583
+            },
+            "std": {
+                "Conjunctions": 0.07730720112931229,
+                "Disjunctions": 0.03883932819552837,
+                "Affirmative German": 0.07981158327561003,
+                "Negated German": 0.07228845089280994,
+                "common_claim_true_false": 0.06183207548302075,
+                "counterfact_true_false": 0.0499676532900105
+            }
+        },
+        "TTPD": {
+            "mean": {
+                "Conjunctions": 0.8137529363234837,
+                "Disjunctions": 0.6901333327094714,
+                "Affirmative German": 0.8666666646798452,
+                "Negated German": 0.8802414889136949,
+                "common_claim_true_false": 0.7853258460760116,
+                "counterfact_true_false": 0.7431939035654068
+            },
+            "std": {
+                "Conjunctions": 0.009395801421167143,
+                "Disjunctions": 0.006275522720264084,
+                "Affirmative German": 0.0038005841752877926,
+                "Negated German": 0.007803005758931622,
+                "common_claim_true_false": 0.0019253843339284307,
+                "counterfact_true_false": 0.004246694424646691
+            }
+        },
+        "LRProbe": {
+            "mean": {
+                "Conjunctions": 0.7799220715959867,
+                "Disjunctions": 0.6240500003099442,
+                "Affirmative German": 0.8854999954501789,
+                "Negated German": 0.9072959154844286,
+                "common_claim_true_false": 0.7469550549983979,
+                "counterfact_true_false": 0.7750297218561173
+            },
+            "std": {
+                "Conjunctions": 0.03917653972300919,
+                "Disjunctions": 0.040072750241613976,
+                "Affirmative German": 0.014654350003293872,
+                "Negated German": 0.017936184917347636,
+                "common_claim_true_false": 0.015132033774108182,
+                "counterfact_true_false": 0.019400116904385662
+            }
+        },
+        "MMProbe": {
+            "mean": {
+                "Conjunctions": 0.8016057605544725,
+                "Disjunctions": 0.691433331867059,
+                "Affirmative German": 0.8281666646401087,
+                "Negated German": 0.8449557835857073,
+                "common_claim_true_false": 0.779584264755249,
+                "counterfact_true_false": 0.6947675496339798
+            },
+            "std": {
+                "Conjunctions": 0.007363890973001673,
+                "Disjunctions": 0.005463109007616996,
+                "Affirmative German": 0.013016017011357702,
+                "Negated German": 0.01256253586858685,
+                "common_claim_true_false": 0.0038204057043974777,
+                "counterfact_true_false": 0.016088062292138463
+            }
+        },
+        "CCSProbe": {
+            "mean": {
+                "Conjunctions": 0.7811470409234366,
+                "Disjunctions": 0.6732666686177253,
+                "Affirmative German": 0.8311666590472063,
+                "Negated German": 0.8494421750307083,
+                "common_claim_true_false": 0.7424382001161576,
+                "counterfact_true_false": 0.7664669722318649
+            },
+            "std": {
+                "Conjunctions": 0.061179071959663184,
+                "Disjunctions": 0.04369002274357879,
+                "Affirmative German": 0.11679171489510061,
+                "Negated German": 0.12235120772736954,
+                "common_claim_true_false": 0.06413564509478548,
+                "counterfact_true_false": 0.09743261526430395
+            }
+        }
+    },
+    "meta_info": {
+        "notebook_name": "lie_detection",
+        "model_name": "Llama3_8B_chat",
+        "layer": 12,
+        "experiment_name": "overall_generalization",
+        "probe_names": [
+            "SimpleMLPProbe",
+            "TTPD",
+            "LRProbe",
+            "MMProbe",
+            "CCSProbe"
+        ],
+        "validation_type": "separate validation sets",
+        "num_iterations": 20,
+        "train_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ],
+        "val_sets": [
+            "cities_conj",
+            "cities_disj",
+            "sp_en_trans_conj",
+            "sp_en_trans_disj",
+            "inventors_conj",
+            "inventors_disj",
+            "animal_class_conj",
+            "animal_class_disj",
+            "element_symb_conj",
+            "element_symb_disj",
+            "facts_conj",
+            "facts_disj",
+            "cities_de",
+            "neg_cities_de",
+            "sp_en_trans_de",
+            "neg_sp_en_trans_de",
+            "inventors_de",
+            "neg_inventors_de",
+            "animal_class_de",
+            "neg_animal_class_de",
+            "element_symb_de",
+            "neg_element_symb_de",
+            "facts_de",
+            "neg_facts_de",
+            "common_claim_true_false",
+            "counterfact_true_false"
+        ]
+    }
+}

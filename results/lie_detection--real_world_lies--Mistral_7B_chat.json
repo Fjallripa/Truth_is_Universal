@@ -1,0 +1,98 @@
+{
+    "probe_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": 0.8340384638309479,
+            "std_dev": 0.09841213392694982
+        },
+        "TTPD": {
+            "mean": 0.8065384590625763,
+            "std_dev": 0.04496217412352787
+        },
+        "LRProbe": {
+            "mean": 0.7603846168518067,
+            "std_dev": 0.07732682659285706
+        },
+        "MMProbe": {
+            "mean": 0.9175000011920929,
+            "std_dev": 0.015633797128376887
+        },
+        "CCSProbe": {
+            "mean": 0.808461537361145,
+            "std_dev": 0.126614425376755
+        }
+    },
+    "dataset_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.8340384638309479
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.09841213392694982
+            }
+        },
+        "TTPD": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.8065384590625763
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.04496217412352787
+            }
+        },
+        "LRProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.7603846168518067
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.07732682659285706
+            }
+        },
+        "MMProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.9175000011920929
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.015633797128376887
+            }
+        },
+        "CCSProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.808461537361145
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.126614425376755
+            }
+        }
+    },
+    "meta_info": {
+        "notebook_name": "lie_detection",
+        "model_name": "Mistral_7B_chat",
+        "layer": 13,
+        "experiment_name": "real_world_lies",
+        "probe_names": [
+            "SimpleMLPProbe",
+            "TTPD",
+            "LRProbe",
+            "MMProbe",
+            "CCSProbe"
+        ],
+        "validation_type": "separate validation sets",
+        "num_iterations": 50,
+        "train_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ],
+        "val_sets": [
+            "real_world_scenarios/all_unambiguous_replies"
+        ]
+    }
+}

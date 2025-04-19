@@ -1,0 +1,241 @@
+{
+    "probe_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": 0.7327055757599218,
+            "std_dev": 0.015733027314665072
+        },
+        "TTPD": {
+            "mean": 0.7534030071326664,
+            "std_dev": 0.0033395451874884893
+        },
+        "LRProbe": {
+            "mean": 0.6961687108235701,
+            "std_dev": 0.026299200171953648
+        },
+        "MMProbe": {
+            "mean": 0.7422817498445511,
+            "std_dev": 0.005485798433382025
+        },
+        "CCSProbe": {
+            "mean": 0.7016196869313717,
+            "std_dev": 0.08941547181210598
+        }
+    },
+    "dataset_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": {
+                "cities_conj": 0.8536381810903549,
+                "cities_disj": 0.8180000007152557,
+                "sp_en_trans_conj": 0.9031999975442886,
+                "sp_en_trans_disj": 0.5674000039696694,
+                "inventors_conj": 0.714699998497963,
+                "inventors_disj": 0.6700000017881393,
+                "animal_class_conj": 0.843600007891655,
+                "animal_class_disj": 0.5787999987602234,
+                "element_symb_conj": 0.8727999985218048,
+                "element_symb_disj": 0.6313000053167344,
+                "facts_conj": 0.6942999988794327,
+                "facts_disj": 0.6235999971628189,
+                "common_claim_true_false": 0.7724943816661834,
+                "counterfact_true_false": 0.7140454888343811
+            },
+            "std": {
+                "cities_conj": 0.03708089079588755,
+                "cities_disj": 0.060811186447934755,
+                "sp_en_trans_conj": 0.03467795029804847,
+                "sp_en_trans_disj": 0.0627059857606162,
+                "inventors_conj": 0.011870554903798671,
+                "inventors_disj": 0.06409679973308474,
+                "animal_class_conj": 0.04357797492263409,
+                "animal_class_disj": 0.03448128767124516,
+                "element_symb_conj": 0.1302787739513277,
+                "element_symb_disj": 0.054583049737119624,
+                "facts_conj": 0.030008496620909427,
+                "facts_disj": 0.03231471121300388,
+                "common_claim_true_false": 0.020122260085847738,
+                "counterfact_true_false": 0.022141542002781036
+            }
+        },
+        "TTPD": {
+            "mean": {
+                "cities_conj": 0.8348464578390121,
+                "cities_disj": 0.8682999938726426,
+                "sp_en_trans_conj": 0.8692999929189682,
+                "sp_en_trans_disj": 0.6428999990224838,
+                "inventors_conj": 0.7019999861717224,
+                "inventors_disj": 0.7665999889373779,
+                "animal_class_conj": 0.8537999987602234,
+                "animal_class_disj": 0.5733999997377396,
+                "element_symb_conj": 0.8859000086784363,
+                "element_symb_disj": 0.6995000004768371,
+                "facts_conj": 0.7202000021934509,
+                "facts_disj": 0.6020999997854233,
+                "common_claim_true_false": 0.7855955094099045,
+                "counterfact_true_false": 0.7432001620531082
+            },
+            "std": {
+                "cities_conj": 0.012180669376896677,
+                "cities_disj": 0.007022107216004893,
+                "sp_en_trans_conj": 0.016950227904838026,
+                "sp_en_trans_disj": 0.030941716979651375,
+                "inventors_conj": 0.007293838803793795,
+                "inventors_disj": 0.019920841687745213,
+                "animal_class_conj": 0.011574109266883296,
+                "animal_class_disj": 0.010101482498321669,
+                "element_symb_conj": 0.021572895040194592,
+                "element_symb_disj": 0.011539061450392215,
+                "facts_conj": 0.013695262778377258,
+                "facts_disj": 0.009240671943768057,
+                "common_claim_true_false": 0.0020935070249767213,
+                "counterfact_true_false": 0.004635149163968218
+            }
+        },
+        "LRProbe": {
+            "mean": {
+                "cities_conj": 0.8230307042598725,
+                "cities_disj": 0.6729999959468842,
+                "sp_en_trans_conj": 0.8231999963521958,
+                "sp_en_trans_disj": 0.6326999992132187,
+                "inventors_conj": 0.6892000019550324,
+                "inventors_disj": 0.6109000027179718,
+                "animal_class_conj": 0.6990999966859818,
+                "animal_class_disj": 0.5022999957203865,
+                "element_symb_conj": 0.8624000072479248,
+                "element_symb_disj": 0.6405000001192093,
+                "facts_conj": 0.6514000117778778,
+                "facts_disj": 0.6358999937772751,
+                "common_claim_true_false": 0.742876410484314,
+                "counterfact_true_false": 0.7598548352718353
+            },
+            "std": {
+                "cities_conj": 0.0475977327383961,
+                "cities_disj": 0.11253532801566805,
+                "sp_en_trans_conj": 0.024440947221520862,
+                "sp_en_trans_disj": 0.06924529488423638,
+                "inventors_conj": 0.030208606874761824,
+                "inventors_disj": 0.0986620007057088,
+                "animal_class_conj": 0.04524809008709287,
+                "animal_class_disj": 0.008130809230286258,
+                "element_symb_conj": 0.057819032074961016,
+                "element_symb_disj": 0.05354204090138709,
+                "facts_conj": 0.03525960608409086,
+                "facts_disj": 0.04611496462146939,
+                "common_claim_true_false": 0.013675889301915926,
+                "counterfact_true_false": 0.01999270611554959
+            }
+        },
+        "MMProbe": {
+            "mean": {
+                "cities_conj": 0.8176568746566772,
+                "cities_disj": 0.8108000010251999,
+                "sp_en_trans_conj": 0.836300003528595,
+                "sp_en_trans_disj": 0.6853999942541122,
+                "inventors_conj": 0.7119000077247619,
+                "inventors_disj": 0.7857999980449677,
+                "animal_class_conj": 0.8339999943971634,
+                "animal_class_disj": 0.5492000073194504,
+                "element_symb_conj": 0.8790000021457672,
+                "element_symb_disj": 0.709299984574318,
+                "facts_conj": 0.6943000018596649,
+                "facts_disj": 0.6208999961614609,
+                "common_claim_true_false": 0.7754157274961472,
+                "counterfact_true_false": 0.6819719046354293
+            },
+            "std": {
+                "cities_conj": 0.01163977982962237,
+                "cities_disj": 0.03135219625297437,
+                "sp_en_trans_conj": 0.009450396180316378,
+                "sp_en_trans_disj": 0.020011000476396708,
+                "inventors_conj": 0.004403411855912474,
+                "inventors_disj": 0.014763469883192784,
+                "animal_class_conj": 0.010990902116431259,
+                "animal_class_disj": 0.01012718904356408,
+                "element_symb_conj": 0.012385472792541367,
+                "element_symb_disj": 0.0035369488957634225,
+                "facts_conj": 0.009844280826376705,
+                "facts_disj": 0.0152901943245247,
+                "common_claim_true_false": 0.0067499542387737645,
+                "counterfact_true_false": 0.017997535426090193
+            }
+        },
+        "CCSProbe": {
+            "mean": {
+                "cities_conj": 0.7808077394962311,
+                "cities_disj": 0.7746000081300736,
+                "sp_en_trans_conj": 0.7882000088691712,
+                "sp_en_trans_disj": 0.6709000006318092,
+                "inventors_conj": 0.6822999998927116,
+                "inventors_disj": 0.6076000019907951,
+                "animal_class_conj": 0.7429000005126,
+                "animal_class_disj": 0.5696000039577485,
+                "element_symb_conj": 0.8274000018835068,
+                "element_symb_disj": 0.6425999969244003,
+                "facts_conj": 0.6476999998092652,
+                "facts_disj": 0.634100005030632,
+                "common_claim_true_false": 0.7113370791077613,
+                "counterfact_true_false": 0.7426307708024978
+            },
+            "std": {
+                "cities_conj": 0.14528407235059673,
+                "cities_disj": 0.12091666489129077,
+                "sp_en_trans_conj": 0.09426537329434329,
+                "sp_en_trans_disj": 0.08338219442223872,
+                "inventors_conj": 0.09090494772188637,
+                "inventors_disj": 0.10071464526450957,
+                "animal_class_conj": 0.14270595698534833,
+                "animal_class_disj": 0.06111170145372739,
+                "element_symb_conj": 0.14257082339237476,
+                "element_symb_disj": 0.12959181874599005,
+                "facts_conj": 0.07853222399981045,
+                "facts_disj": 0.06774798819651892,
+                "common_claim_true_false": 0.09982571634731102,
+                "counterfact_true_false": 0.11444948329825967
+            }
+        }
+    },
+    "meta_info": {
+        "notebook_name": "lie_detection",
+        "model_name": "Llama3_8B_chat",
+        "layer": 12,
+        "experiment_name": "logical_junctions",
+        "probe_names": [
+            "SimpleMLPProbe",
+            "TTPD",
+            "LRProbe",
+            "MMProbe",
+            "CCSProbe"
+        ],
+        "validation_type": "separate validation sets",
+        "num_iterations": 20,
+        "train_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ],
+        "val_sets": [
+            "cities_conj",
+            "cities_disj",
+            "sp_en_trans_conj",
+            "sp_en_trans_disj",
+            "inventors_conj",
+            "inventors_disj",
+            "animal_class_conj",
+            "animal_class_disj",
+            "element_symb_conj",
+            "element_symb_disj",
+            "facts_conj",
+            "facts_disj",
+            "common_claim_true_false",
+            "counterfact_true_false"
+        ]
+    }
+}

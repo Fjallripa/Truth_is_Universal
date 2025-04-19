@@ -1,0 +1,98 @@
+{
+    "probe_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": 0.8540384614467621,
+            "std_dev": 0.06368521149626481
+        },
+        "TTPD": {
+            "mean": 0.8965384650230408,
+            "std_dev": 0.015210557439870768
+        },
+        "LRProbe": {
+            "mean": 0.7753846168518066,
+            "std_dev": 0.0848501997716213
+        },
+        "MMProbe": {
+            "mean": 0.870576924085617,
+            "std_dev": 0.03419672637827199
+        },
+        "CCSProbe": {
+            "mean": 0.6246153825521469,
+            "std_dev": 0.14187772564949322
+        }
+    },
+    "dataset_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.8540384614467621
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.06368521149626481
+            }
+        },
+        "TTPD": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.8965384650230408
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.015210557439870768
+            }
+        },
+        "LRProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.7753846168518066
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.0848501997716213
+            }
+        },
+        "MMProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.870576924085617
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.03419672637827199
+            }
+        },
+        "CCSProbe": {
+            "mean": {
+                "real_world_scenarios/all_unambiguous_replies": 0.6246153825521469
+            },
+            "std": {
+                "real_world_scenarios/all_unambiguous_replies": 0.14187772564949322
+            }
+        }
+    },
+    "meta_info": {
+        "notebook_name": "lie_detection",
+        "model_name": "Gemma2_9B_base",
+        "layer": 16,
+        "experiment_name": "real_world_lies",
+        "probe_names": [
+            "SimpleMLPProbe",
+            "TTPD",
+            "LRProbe",
+            "MMProbe",
+            "CCSProbe"
+        ],
+        "validation_type": "separate validation sets",
+        "num_iterations": 50,
+        "train_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ],
+        "val_sets": [
+            "real_world_scenarios/all_unambiguous_replies"
+        ]
+    }
+}

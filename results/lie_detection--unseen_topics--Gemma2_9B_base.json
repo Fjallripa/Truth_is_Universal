@@ -1,0 +1,219 @@
+{
+    "probe_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": 0.908414586385091,
+            "std_dev": 0.03626223272239764
+        },
+        "TTPD": {
+            "mean": 0.94463942249616,
+            "std_dev": 0.001224752863587992
+        },
+        "LRProbe": {
+            "mean": 0.9330168197552362,
+            "std_dev": 0.010292541015282262
+        },
+        "MMProbe": {
+            "mean": 0.9412442145248253,
+            "std_dev": 0.0029027538879681275
+        },
+        "CCSProbe": {
+            "mean": 0.7697743359953165,
+            "std_dev": 0.05973081466913731
+        }
+    },
+    "dataset_accuracies": {
+        "SimpleMLPProbe": {
+            "mean": {
+                "cities": 0.942212563753128,
+                "neg_cities": 0.949331545829773,
+                "sp_en_trans": 0.9991525441408158,
+                "neg_sp_en_trans": 0.9591807961463928,
+                "inventors": 0.8128078818321228,
+                "neg_inventors": 0.7876847296953201,
+                "animal_class": 0.9698170781135559,
+                "neg_animal_class": 0.9295731782913208,
+                "element_symb": 0.9631720393896103,
+                "neg_element_symb": 0.9806451797485352,
+                "facts": 0.8471479475498199,
+                "neg_facts": 0.7602495521306991
+            },
+            "std": {
+                "cities": 0.14749547289338763,
+                "neg_cities": 0.1497873081647431,
+                "sp_en_trans": 0.0015728150790766165,
+                "neg_sp_en_trans": 0.036225158295832054,
+                "inventors": 0.1275043960998082,
+                "neg_inventors": 0.1772656533217929,
+                "animal_class": 0.10526861451742163,
+                "neg_animal_class": 0.10942488926629662,
+                "element_symb": 0.01308950529662001,
+                "neg_element_symb": 0.0054828114524611135,
+                "facts": 0.08200781760519969,
+                "neg_facts": 0.0621065670699196
+            }
+        },
+        "TTPD": {
+            "mean": {
+                "cities": 0.999097591638565,
+                "neg_cities": 0.9985628515481949,
+                "sp_en_trans": 1.0,
+                "neg_sp_en_trans": 0.9139830499887467,
+                "inventors": 0.9378078877925873,
+                "neg_inventors": 0.8838670015335083,
+                "animal_class": 0.9942073225975037,
+                "neg_animal_class": 0.9878048896789551,
+                "element_symb": 0.978225827217102,
+                "neg_element_symb": 0.9758064687252045,
+                "facts": 0.8639928817749023,
+                "neg_facts": 0.8023172974586487
+            },
+            "std": {
+                "cities": 0.0003188095749822148,
+                "neg_cities": 0.00043705593743341306,
+                "sp_en_trans": 0.0,
+                "neg_sp_en_trans": 0.01356152672718835,
+                "inventors": 0.004327911449304858,
+                "neg_inventors": 0.0071502826189860785,
+                "animal_class": 0.0013289313373691168,
+                "neg_animal_class": 0.0,
+                "element_symb": 0.0011717459103684686,
+                "neg_element_symb": 0.003606571142570531,
+                "facts": 0.001141380270985763,
+                "neg_facts": 0.004060898287729566
+            }
+        },
+        "LRProbe": {
+            "mean": {
+                "cities": 0.9975601464509964,
+                "neg_cities": 0.9892713874578476,
+                "sp_en_trans": 0.976412433385849,
+                "neg_sp_en_trans": 0.973870050907135,
+                "inventors": 0.8599753737449646,
+                "neg_inventors": 0.8455665051937103,
+                "animal_class": 0.9911585360765457,
+                "neg_animal_class": 0.98628049492836,
+                "element_symb": 0.9688172042369843,
+                "neg_element_symb": 0.9798387259244918,
+                "facts": 0.8393939375877381,
+                "neg_facts": 0.7880570411682128
+            },
+            "std": {
+                "cities": 0.004480478147530187,
+                "neg_cities": 0.028184839614892793,
+                "sp_en_trans": 0.0385184299349413,
+                "neg_sp_en_trans": 0.019445918817477814,
+                "inventors": 0.04716781350296078,
+                "neg_inventors": 0.07942768068861268,
+                "animal_class": 0.014490535853687996,
+                "neg_animal_class": 0.026848316186023256,
+                "element_symb": 0.018120755256184902,
+                "neg_element_symb": 0.009135833145629841,
+                "facts": 0.024891058763597217,
+                "neg_facts": 0.021567152939942203
+            }
+        },
+        "MMProbe": {
+            "mean": {
+                "cities": 0.9877339571714401,
+                "neg_cities": 0.9996991902589798,
+                "sp_en_trans": 1.0,
+                "neg_sp_en_trans": 0.9816384196281434,
+                "inventors": 0.8875615805387497,
+                "neg_inventors": 0.8862068980932236,
+                "animal_class": 0.9993902444839478,
+                "neg_animal_class": 0.9871951341629028,
+                "element_symb": 0.9532257944345475,
+                "neg_element_symb": 0.9795699119567871,
+                "facts": 0.8419786095619202,
+                "neg_facts": 0.7907308340072632
+            },
+            "std": {
+                "cities": 0.004608297594949226,
+                "neg_cities": 0.00033255768141599723,
+                "sp_en_trans": 0.0,
+                "neg_sp_en_trans": 0.010849075656419434,
+                "inventors": 0.016287382710273874,
+                "neg_inventors": 0.004647284380408,
+                "animal_class": 0.0018292665481567383,
+                "neg_animal_class": 0.0018292665481567383,
+                "element_symb": 0.00817133502879084,
+                "neg_element_symb": 0.0032258033752441406,
+                "facts": 0.017836677076369736,
+                "neg_facts": 0.00900839883695666
+            }
+        },
+        "CCSProbe": {
+            "mean": {
+                "cities": 0.7622326225042343,
+                "neg_cities": 0.7748997330665588,
+                "sp_en_trans": 0.9033898293972016,
+                "neg_sp_en_trans": 0.8529661029577256,
+                "inventors": 0.7050492599606514,
+                "neg_inventors": 0.7371921181678772,
+                "animal_class": 0.7512195110321045,
+                "neg_animal_class": 0.7768292635679245,
+                "element_symb": 0.8341397821903229,
+                "neg_element_symb": 0.8129032284021378,
+                "facts": 0.6756684496998787,
+                "neg_facts": 0.650802130997181
+            },
+            "std": {
+                "cities": 0.23716141663608614,
+                "neg_cities": 0.23327075225127994,
+                "sp_en_trans": 0.18792976406801687,
+                "neg_sp_en_trans": 0.23726034875449856,
+                "inventors": 0.1933189606754846,
+                "neg_inventors": 0.19375815674538777,
+                "animal_class": 0.2403290109605406,
+                "neg_animal_class": 0.22192442194066775,
+                "element_symb": 0.19855584793502712,
+                "neg_element_symb": 0.20237919430597517,
+                "facts": 0.15974052814850923,
+                "neg_facts": 0.12721940975160043
+            }
+        }
+    },
+    "meta_info": {
+        "notebook_name": "lie_detection",
+        "model_name": "Gemma2_9B_base",
+        "layer": 16,
+        "experiment_name": "unseen_topics",
+        "probe_names": [
+            "SimpleMLPProbe",
+            "TTPD",
+            "LRProbe",
+            "MMProbe",
+            "CCSProbe"
+        ],
+        "validation_type": "leave-one-out cross-validation",
+        "num_iterations": 20,
+        "train_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ],
+        "val_sets": [
+            "cities",
+            "neg_cities",
+            "sp_en_trans",
+            "neg_sp_en_trans",
+            "inventors",
+            "neg_inventors",
+            "animal_class",
+            "neg_animal_class",
+            "element_symb",
+            "neg_element_symb",
+            "facts",
+            "neg_facts"
+        ]
+    }
+}
