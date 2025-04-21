@@ -1,9 +1,16 @@
 # Truth is Universal - seminar project 
 This repository is a fork of [sciai-lab/Truth_is_Universal](https://github.com/sciai-lab/Truth_is_Universal). It's part of a 2025 seminar coding project on Mechanistic Interpretability and aims to build on the paper's ideas in various ways.
 
-The original repository contains the code and datasets necessary to reproduce the results presented in the Neurips 2024 paper <a href="https://arxiv.org/abs/2407.12831">"Truth is Universal: Robust Detection of Lies in LLMs"</a>.
+For that project, see:
+###### [Seminar project report](Seminar%20project%20report) 
+and
+###### [Step-by-step guide to reproduce the main results](Step-by-step%20guide%20to%20reproduce%20the%20main%20results)
 
 
+
+The original repository contains the code and datasets necessary to reproduce the results presented in the Neurips paper [Truth is Universal: Robust Detection of Lies in LLMs](https://arxiv.org/abs/2407.12831) (Bürger et al., 2024).
+
+*The rest of this README is unchanged from the original repository.*
 ## Set-up
 We recommend using conda for Python installation. While we used Python 3.11.9, other versions should be compatible.
 It's advisable to create a new Python environment before installing the required packages.
