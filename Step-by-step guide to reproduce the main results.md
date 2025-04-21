@@ -1,16 +1,16 @@
-###### Contents:
-1. [Setting up the repository](Step-by-step%20guide%20to%20reproduce%20the%20main%20results#Setting%20up%20the%20repository)
-2. [Running the experiments](Step-by-step%20guide%20to%20reproduce%20the%20main%20results#Running%20the%20experiments)
+#### Contents:
+1. [Setting up the repository](Step-by-step%20guide%20to%20reproduce%20the%20main%20results.md#setting-up-the-repository)
+2. [Running the experiments](Step-by-step%20guide%20to%20reproduce%20the%20main%20results.md#running-the-experiments)
 
 
 
-#### Setting up the repository
+## Setting up the repository
 *Step-by-step guide to get the "Fjallripa/Truth_is_Universal" repository up-and-running on a new computer.*
 
 **!Note:** Instructions on how to install and run the LLMs are **not included** here!
-For this minimal reproduction, only the relevant pre-computed LLM activation vectors will be provided as a download ([See below.](Step-by-step%20guide%20to%20reproduce%20the%20main%20results#3.%20Download%20the%20activations) The link is open until 2025-06-01 00:00).
+For this minimal reproduction, only the relevant pre-computed LLM activation vectors will be provided as a download ([See below.](Step-by-step%20guide%20to%20reproduce%20the%20main%20results.md#3-download-the-activations) The link is open until 2025-06-01 00:00).
 
-###### 0. Hardware & software requirements
+#### 0. Hardware & software requirements
 - This setup guide assumes you're working with a **bash-like shell** in a Unix-like environment (includes macOS) and are familiar with using it.
 	- Also, you need to download a couple of GB of data, so a reasonable internet connection is required too.
 - You also need **10 GB** of harddrive **space** (mainly for the activation vectors).
@@ -19,7 +19,7 @@ For this minimal reproduction, only the relevant pre-computed LLM activation vec
 - No GPU required.
 
 
-###### 1. Create conda environment for the repo
+#### 1. Create conda environment for the repo
 1. If needed, install conda first.
 ```bash
 curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -33,7 +33,7 @@ conda create --name tiu python=3.11
 conda activate tiu   # tiu = truth_is_universal
 ```
 
-###### 2. Download the repository
+#### 2. Download the repository
 1. Go to github.com/Fjallripa/Truth_is_Universal
 2. Click the button "Code" on the right side. Click "Download ZIP".
 3. Back in the shell, unzip and move the repo to your preferred location.
@@ -44,7 +44,7 @@ mv Truth_is_Universal-main Truth_is_Universal   # just a rename for convenience
 mv Truth_is_Universal <dir>   # <dir> = the folder under which you want to store the repo
 ```
 
-###### 3. Download the activations
+#### 3. Download the activations
 1. Go to [heiBox](https://heibox.uni-heidelberg.de/d/4c33de9e1273401088de/) and download the `acts.zip` file (4.7 GB).
 	+ The link is open until 2025-06-01 00:00.
 2. Unzip it and move the `acts/` folder into the repo folder `Truth_is_Universal/`.
@@ -53,14 +53,14 @@ unzip acts.zip
 mv acts <dir>/Truth_is_Universal
 ```
 
-###### 4. Install the rest of the environment
+#### 4. Install the rest of the environment
 1. Install all the python packages needed for this repo to the `tiu` conda environment.
 ```bash
 cd <dir>/Truth_is_Universal
 pip install -r ./requirements.txt
 ```
 
-###### 5. Make the notebooks work
+#### 5. Make the notebooks work
 - The Jupyter notebooks (where the main experiments are) need to use the Python kernel from the `tiu` environment in order to work properly. 
 	- If you're using VSCode, the `tiu` kernel should appear as an option when you're starting to run a notebook.
 1. If you're using Jupyter Notebook or Lab, you need to enable that kernel as an option first:
@@ -73,7 +73,7 @@ ipython kernel install --user --name=tiu
 
 
 
-#### Running the experiments
+## Running the experiments
 *Guide to do a minimal reproduction of the experiments.*
 
 There are three notebooks producing the relevant experimental results.
