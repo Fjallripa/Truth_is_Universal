@@ -2,9 +2,9 @@
 This repository is a fork of [sciai-lab/Truth_is_Universal](https://github.com/sciai-lab/Truth_is_Universal). It's part of a 2025 seminar coding project on Mechanistic Interpretability and aims to build on the paper's ideas in various ways.
 
 For that project, see:
-###### [Seminar project report](Seminar%20project%20report) 
+###### [Seminar project report](Seminar%20project%20report.md) 
 and
-###### [Step-by-step guide to reproduce the main results](Step-by-step%20guide%20to%20reproduce%20the%20main%20results)
+###### [Step-by-step guide to reproduce the main results](Step-by-step%20guide%20to%20reproduce%20the%20main%20results.md)
 
 
 
